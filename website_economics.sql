@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2024 at 09:47 AM
+-- Generation Time: Apr 24, 2024 at 03:23 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `echonomics_web`
+-- Database: `website_economics`
 --
 
 -- --------------------------------------------------------
@@ -38,18 +38,19 @@ CREATE TABLE `website_economics` (
   `password` varchar(255) NOT NULL,
   `user_type` varchar(255) NOT NULL DEFAULT 'user',
   `service` enum('consultation','repair') DEFAULT NULL,
-  `status` enum('done','completed','pairing') DEFAULT 'pairing'
+  `status` enum('done','completed','pairing') DEFAULT 'pairing',
+  `price` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `website_economics`
 --
 
-INSERT INTO `website_economics` (`id`, `title`, `description`, `start_datetime`, `end_datetime`, `name`, `email`, `password`, `user_type`, `service`, `status`) VALUES
-(24, '', '', '0000-00-00 00:00:00', '2024-03-26 15:46:01', 'test', 'test@gmail.com', '098f6bcd4621d373cade4e832627b4f6', 'user', NULL, 'completed'),
-(40, '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'admin', 'admin@gmail.com', '0192023a7bbd73250516f069df18b500', 'admin', NULL, 'pairing'),
-(57, '', '', '0000-00-00 00:00:00', '2024-03-26 15:46:01', 'test', '', '', '', 'repair', 'completed'),
-(58, 'test', 'test', '2024-03-25 15:45:00', '2024-03-26 15:46:01', 'test', '', '', '', 'repair', 'done');
+INSERT INTO `website_economics` (`id`, `title`, `description`, `start_datetime`, `end_datetime`, `name`, `email`, `password`, `user_type`, `service`, `status`, `price`) VALUES
+(24, '', '', '0000-00-00 00:00:00', '2024-03-26 15:46:01', 'test', 'test@gmail.com', '098f6bcd4621d373cade4e832627b4f6', 'user', NULL, 'completed', NULL),
+(40, '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'admin', 'admin@gmail.com', '0192023a7bbd73250516f069df18b500', 'admin', NULL, 'pairing', NULL),
+(57, '', '', '0000-00-00 00:00:00', '2024-03-26 15:46:01', 'test', '', '', '', 'repair', 'completed', NULL),
+(58, 'test', 'test', '2024-03-25 15:45:00', '2024-03-26 15:46:01', 'test', '', '', '', 'repair', 'done', NULL);
 
 --
 -- Indexes for dumped tables
