@@ -1,1 +1,0 @@
-ini semua remastered dari  yours truly alden sayidian radjab it class 6 pufa comptuing
