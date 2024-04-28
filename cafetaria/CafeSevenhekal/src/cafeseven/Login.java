@@ -4,6 +4,8 @@
  */
 package cafeseven;
 
+import java.util.Optional;
+
 /**
  *
  * @author haikal
@@ -79,7 +81,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jLabel4.setText("Username");
+        jLabel4.setText("Email");
 
         jLabel5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         jLabel5.setText("Password");
@@ -151,6 +153,23 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        System.out.println("Testing");
+        String email = jTextField2.getText();
+        String password = jPasswordField1.getText();
+        
+        Database db = new Database();
+        Optional<User> userDb = db.getUser(email);
+        if(!userDb.isPresent()) {
+            System.out.println("User not found");
+            return;
+        }
+        User user = userDb.get();
+        if(!user.getPassword().equals(password)) {
+            System.out.println("Wrong password");
+            return;
+        }
+        new Items().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
