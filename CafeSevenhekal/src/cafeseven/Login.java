@@ -150,7 +150,7 @@ public class Login extends javax.swing.JFrame {
         Database db = new Database();
         Optional<User> userDb = db.getUser(email);
         if(!userDb.isPresent()) {
-            System.out.println("User not found");
+            System.out.println("Email not found");
             return;
         }
         User user = userDb.get();
